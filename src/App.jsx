@@ -1,7 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import { Box } from 'styles/Box';
-import { Home } from 'components/Home/Home';
-import { Movies } from 'components/Movies/Movies';
+import Home from 'pages/Home/Home';
 
 export const App = () => {
   return (
@@ -13,9 +12,7 @@ export const App = () => {
       height="100%"
     >
       <Routes>
-        <Route path="/" element={<Home />}>
-          <Route path="movies" element={<Movies />}></Route>
-        </Route>
+        <Route path="/" element={<Home />}></Route>
       </Routes>
     </Box>
   );

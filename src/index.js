@@ -7,7 +7,7 @@ import { Globalstyles } from 'styles/Global';
 import { ThemeProvider } from '@emotion/react';
 import { theme } from './styles/theme';
 
-import './index.css';
+// import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
