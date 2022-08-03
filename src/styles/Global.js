@@ -46,4 +46,8 @@ export const Globalstyles = {
     padding: '0',
     margin: '0',
   },
+  a: {
+    display: 'block',
+    textDecoration: 'none',
+  },
 };

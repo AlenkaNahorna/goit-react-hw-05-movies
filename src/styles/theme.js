@@ -2,8 +2,9 @@ export const theme = {
   colors: {
     primaryColor: '#000000',
     secondaryColor: '#fff',
-    secondaryColorBlue: '#639bee',
-    secondaryTextColor: '#999da3dc',
+    secondaryBgColor: '#b3c8e7dc',
+    secondaryColorBlue: '#2872e0',
+    secondaryTextColor: '#9ca8b9',
   },
   space: {
     xs: '0px',

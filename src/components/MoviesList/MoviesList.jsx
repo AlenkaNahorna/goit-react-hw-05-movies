@@ -1,6 +1,11 @@
 import { Link, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { MovList, MovListItem, MovListItemPoster } from './MoviesList.styled';
+import {
+  MovList,
+  MovListItem,
+  MovListItemPoster,
+  MovTitle,
+} from './MoviesList.styled';
 
 export const MoviesList = ({ movies }) => {
   const location = useLocation();
@@ -15,10 +20,11 @@ export const MoviesList = ({ movies }) => {
                 src={
                   movie.poster_path
                     ? 'https://image.tmdb.org/t/p/w300' + movie.poster_path
-                    : 'https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg'
+                    : 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png'
                 }
                 alt=""
               />
+              <MovTitle>{movie.title}</MovTitle>
             </Link>
           </MovListItem>
         );
