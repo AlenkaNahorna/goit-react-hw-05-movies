@@ -1,10 +1,11 @@
 import { customAxios } from './customAxios';
 import { toast } from 'react-toastify';
 
-export const getTrending = async () => {
+export const getMovieByKey = async query => {
   try {
-    const response = await customAxios.get('/trending/movie/day');
-    const { data } = response;
+    const { data } = await customAxios.get('/search/movie', {
+      params: query,
+    });
     return data;
   } catch (error) {
     toast.error(`Sorry, something went wrong ${error}`);

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
-import { getTrending } from 'api/getTrending';
+import { getTrendingMovies } from 'api/getTrendingMovies';
 import { MoviesList } from 'components/MoviesList/MoviesList';
 import { Title } from 'components/ui/Title';
 
@@ -10,7 +10,7 @@ const Home = () => {
   useEffect(() => {
     async function trending() {
       try {
-        const { results } = await getTrending();
+        const { results } = await getTrendingMovies();
         console.log(results);
         setTrendingMovies(results);
       } catch (error) {
