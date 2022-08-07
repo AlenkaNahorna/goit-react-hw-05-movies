@@ -11,7 +11,6 @@ const Home = () => {
     async function trending() {
       try {
         const { results } = await getTrendingMovies();
-        console.log(results);
         setTrendingMovies(results);
       } catch (error) {
         toast.info(`Something went wrong ${error}`);

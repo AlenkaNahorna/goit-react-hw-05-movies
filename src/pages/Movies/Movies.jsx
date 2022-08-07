@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { getKeyWord } from 'api/getKeyWord';
+import { getMovieByKey } from 'api/getMovieByKey';
 import { MoviesList } from 'components/MoviesList/MoviesList';
 import { Title } from 'components/ui/Title';
 import { toast } from 'react-toastify';
@@ -12,17 +12,23 @@ const Movies = () => {
   const [searchResult, setSearchResult] = useState([]);
 
   useEffect(() => {
-    let filmName = searchParams.get('name') ?? '';
-    if (filmName === '') {
-      return;
-    } else {
-      getKeyWord({
-        query: filmName,
-        page: 1,
-      }).then(result => {
-        setSearchResult(result.data.results);
-      });
+    async function onKeyWord() {
+      try {
+        let filmName = searchParams.get('name') ?? '';
+        if (filmName === '') {
+          return;
+        } else {
+          const { results } = await getMovieByKey({
+            query: filmName,
+            page: 1,
+          });
+          setSearchResult(results);
+        }
+      } catch (error) {
+        toast.info(`Something went wrong ${error}`);
+      }
     }
+    onKeyWord();
   }, [searchParams]);
 
   const handlerSubmit = value => {
@@ -38,11 +44,11 @@ const Movies = () => {
   return (
     <Box
       display="flex"
-      flex-direction="column"
-      justify-content="center"
-      align-items="center"
+      flexDirection="column"
+      justifyContent="center"
+      alignItems="center"
     >
-      <Title>search movie by keyword</Title>
+      <Title>Search movie by keyword</Title>
       <Searchbar onSubmit={handlerSubmit} value={searchParams.get('name')} />
       <MoviesList movies={searchResult} />
     </Box>

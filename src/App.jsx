@@ -1,6 +1,11 @@
 import { Routes, Route } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
 import { Box } from 'styles/Box';
-import Home from 'pages/Home/Home';
+import { Loader } from 'components/Loader/Loader';
+import { SharedLayout } from 'layout/SharedLayout';
+
+const Home = lazy(() => import('pages/Home/Home'));
+const Movies = lazy(() => import('pages/Movies/Movies'));
 
 export const App = () => {
   return (
@@ -9,11 +14,16 @@ export const App = () => {
       flexDirection="column"
       alignItems="center"
       width="100%"
-      height="100%"
+      minHeight="100vh"
     >
-      <Routes>
-        <Route path="/" element={<Home />}></Route>
-      </Routes>
+      <Suspense fallback={<Loader />}>
+        <Routes>
+          <Route path="/" element={<SharedLayout />}>
+            <Route index element={<Home />} />
+            <Route path="movies" element={<Movies />} />
+          </Route>
+        </Routes>
+      </Suspense>
     </Box>
   );
 };
