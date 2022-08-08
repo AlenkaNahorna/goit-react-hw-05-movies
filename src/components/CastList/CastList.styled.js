@@ -13,7 +13,7 @@ export const CastListItem = styled.li`
   flex-direction: column;
   justify-content: baseline;
   max-width: 80px;
-  margin: 5px;
+  margin: ${p => p.theme.space.m};
   flex-grow: 1;
 `;
 
@@ -21,7 +21,7 @@ export const CastListPoster = styled.img`
   display: block;
   max-width: 100%;
   height: auto;
-  margin-bottom: 3px;
+  margin-bottom: ${p => p.theme.space.m};
 `;
 
 export const CastListName = styled.p`
