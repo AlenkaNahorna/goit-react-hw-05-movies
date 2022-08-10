@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 import { TiArrowBackOutline } from 'react-icons/ti';
 
-export const BackLink = styled(Link)`
+export const StyledLink = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: center;

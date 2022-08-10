@@ -1,5 +1,6 @@
 import { customAxios } from './customAxios';
 import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const getMovieByKey = async query => {
   try {

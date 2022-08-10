@@ -1,3 +1,4 @@
+import { BASE_IMG_URL } from '../../constants/constantsApi';
 import {
   MovieInfoCard,
   MovieInfoPoster,
@@ -12,8 +13,8 @@ export const MovieInfo = ({ movie }) => {
       <MovieInfoPoster
         src={
           movie.poster_path
-            ? 'https://image.tmdb.org/t/p/w500' + movie.poster_path
-            : 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png'
+            ? BASE_IMG_URL + '/w500' + movie.poster_path
+            : '../../../assets/No-Image-Placeholder.png'
         }
         alt=""
         width="100px"

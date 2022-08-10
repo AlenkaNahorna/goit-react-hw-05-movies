@@ -1,7 +1,5 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { toast } from 'react-toastify';
-
 import { CastList } from '../../../components/CastList/CastList';
 import { getMovieCast } from 'api/getMovieCast';
 
@@ -11,14 +9,10 @@ const Cast = () => {
 
   useEffect(() => {
     async function onMovieCast() {
-      try {
-        const {
-          data: { cast },
-        } = await getMovieCast(movieId);
-                setCasts(cast);
-      } catch (error) {
-        toast.info(`Something went wrong ${error}`);
-      }
+      const {
+        data: { cast },
+      } = await getMovieCast(movieId);
+      setCasts(cast);
     }
     onMovieCast();
   }, [movieId]);

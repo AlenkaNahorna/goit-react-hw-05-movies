@@ -1,4 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
+import { BASE_IMG_URL } from '../../constants/constantsApi';
 import PropTypes from 'prop-types';
 import {
   MovList,
@@ -19,8 +20,8 @@ export const MoviesList = ({ movies }) => {
               <MovListItemPoster
                 src={
                   movie.poster_path
-                    ? 'https://image.tmdb.org/t/p/w300' + movie.poster_path
-                    : 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png'
+                    ? BASE_IMG_URL + '/w300' + movie.poster_path
+                    : '../../../assets/No-Image-Placeholder.png'
                 }
                 alt=""
               />

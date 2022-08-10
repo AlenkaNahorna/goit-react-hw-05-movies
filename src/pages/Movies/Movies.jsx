@@ -13,19 +13,15 @@ const Movies = () => {
 
   useEffect(() => {
     async function onKeyWord() {
-      try {
-        let filmName = searchParams.get('name') ?? '';
-        if (filmName === '') {
-          return;
-        } else {
-          const { results } = await getMovieByKey({
-            query: filmName,
-            page: 1,
-          });
-          setSearchResult(results);
-        }
-      } catch (error) {
-        toast.info(`Something went wrong ${error}`);
+      let filmName = searchParams.get('name') ?? '';
+      if (filmName === '') {
+        return;
+      } else {
+        const { results } = await getMovieByKey({
+          query: filmName,
+          page: 1,
+        });
+        setSearchResult(results);
       }
     }
     onKeyWord();
