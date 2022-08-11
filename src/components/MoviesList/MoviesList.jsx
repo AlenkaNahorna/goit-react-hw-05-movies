@@ -1,4 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
+import NoImage from '../../asset/No-Image-Placeholder.png';
 import { BASE_IMG_URL } from '../../constants/constantsApi';
 import PropTypes from 'prop-types';
 import {
@@ -17,14 +18,14 @@ export const MoviesList = ({ movies }) => {
         return (
           <MovListItem key={movie.id}>
             <Link to={`/movies/${movie.id}`} state={{ from: location }}>
-              <MovListItemPoster
-                src={
-                  movie.poster_path
-                    ? BASE_IMG_URL + '/w300' + movie.poster_path
-                    : '../../../assets/No-Image-Placeholder.png'
-                }
-                alt=""
-              />
+              {movie.poster_path ? (
+                <MovListItemPoster
+                  src={BASE_IMG_URL + '/w300' + movie.poster_path}
+                  alt=""
+                />
+              ) : (
+                <MovListItemPoster src={NoImage} alt="" />
+              )}
               <MovTitle>{movie.title}</MovTitle>
             </Link>
           </MovListItem>

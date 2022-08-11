@@ -1,4 +1,5 @@
 import { BASE_IMG_URL } from '../../constants/constantsApi';
+import NoImage from '../../asset/No-Image-Placeholder.png';
 import {
   CastListStyled,
   CastListItem,
@@ -12,14 +13,15 @@ export const CastList = ({ credits }) => {
         {credits.map(credit => {
           return (
             <CastListItem key={credit.credit_id}>
-              <CastListPoster
-                src={
-                  credit.profile_path
-                    ? BASE_IMG_URL + '/w500' + credit.profile_path
-                    : '../../../assets/No-Image-Placeholder.png'
-                }
-                alt=""
-              />
+              {credit.profile_path ? (
+                <CastListPoster
+                  src={BASE_IMG_URL + '/w500' + credit.profile_path}
+                  alt=""
+                />
+              ) : (
+                <CastListPoster src={NoImage} alt="" />
+              )}
+
               <CastListName>{credit.name}</CastListName>
             </CastListItem>
           );
